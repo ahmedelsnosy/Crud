@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+   
+    <div class="text-center w-75 mx-auto shadow-lg">
+        <h1 class=" text-center fw-bolder w-100 title"> ELSNOSY FOR OPTICS</h1>
+    </div>
+
+    <!-- inputs for Data -->
+    <div class="container mt-5 ">
+
+        <label for="fullname" class="mb-3">الاسم</label>
+        <input type="text" name="fullName" required class="form-control mb-3 " id="fullname" placeholder="ادخل الاسم">
+
+        <label for="phone" class="mb-3">التليفون</label>
+        <input type="tel" name="phone" maxlength="11" required class="form-control mb-3" id="phone"
+            placeholder="ادخل رقم التليفون">
+
+        <label for="address" class="mb-3">العنوان</label>
+        <input type="text" name="address" class="form-control mb-3" required id="address"
+            placeholder="ادخل العنوان">
+
+        <label for="date" class="mb-3 ">التاريخ</label>
+        <input type="date" name="date" class="form-control mb-3 " disabled id="date">
+
+        <label for="doctor" class="mb-3 ">الدكتور</label>
+        <input type="text" name="doctor" class="form-control mb-3 " required id="doctor" placeholder="ادخل اسم الطبيب المعالج">
+
+        <label for="typeOfFrame" class="mb-3 ">نوع الشمبر</label>
+        <input type="text" name="typeOfFrame" class="form-control mb-3 " required id="typeOfFrame" placeholder="ادخل نوع الشمبر">
+
+        <label for="typeOfGlass" class="mb-3 ">نوع العدسات</label>
+        <input type="text" name="typeOfGlass" class="form-control mb-3 " required id="typeOfGlass" placeholder="ادخل نوع العدسات">
+
+        <label for="price" class="mb-3">السعر </label>
+        <input type="number" name="price" class="form-control mb-3" required id="price" placeholder="ادخل السعر">
+
+        <label for="paidup" class="mb-3">المدفوع</label>
+        <input type="number" placeholder="المدفوع" name="paidup" class="form-control mb-3" required id="paidup" placeholder="ادخل المدفوع">
+
+        <label for="residual" class="mb-3 ">الباقي</label>
+        <input type="number" name="residual" class="form-control mb-3 " disabled placeholder="الباقي من السعر"
+            id="residual">
+
+
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6    mt-2  bg-danger">
+                <table class="table">
+                    <h2 class="text-center">Right</h2>
+                    <thead>
+                        <th></th>
+                        <th>SPH</th>
+                        <th>CYL</th>
+                        <th>Axis</th>
+                    </thead>
+                    <tbody>
+                        <td>
+                            Distance
+                        </td>
+                        <td>
+                            <input type="number" name="rightSph" id="rightSph" class="w-50  form-control">
+                        </td>
+                        <td>
+                            <input type="number" name="rightCyl" id="rightCyl" class="w-50 form-control">
+                        </td>
+                        <td>
+                            <input type="number" name="rightAxis" id="rightAxis" class="w-50 form-control">
+                        </td>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6 mt-2 bg-info">
+                <table class="table">
+                    <h2 class="text-center">Left</h2>
+                    <thead>
+                        <th>SPH</th>
+                        <th>CYL</th>
+                        <th>Axis</th>
+                    </thead>
+                    <tbody>
+                        <td>
+                            <input type="number" name="leftSph" id="leftSph" class="w-50 form-control">
+                        </td>
+                        <td>
+                            <input type="number" name="leftCyl" id="leftCyl" class="w-50 form-control">
+                        </td>
+                        <td>
+                            <input type="number" name="leftAxis" id="leftAxis" class="w-50 form-control">
+                        </td>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6 mt-2 bg-info">
+                <table class="table">
+                    <h2 class="text-center">Reading</h2>
+                    <thead class="text-center">
+                        <th>Addition</th>
+                    </thead>
+                    <tbody class="text-center">
+                        <td>
+                            <input type="number" name="addition" id="addition" class="w-50 mx-auto form-control">
+                        </td>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <!-- buttons -->
+        <div class="text-center">
+            <button id="change" class=" btn text-white bg-dark mt-3" onclick="addClient() ">ADD CLIENT</button>
+            <button class="btn btn-outline-info mt-3 ms-2 px-5 text-black" onclick="print()">Print</button>
+        </div>
+
+
+
+
+    </div>
+   <!--end inputs for Data -->
+    
+    <!-- input for Search -->
+    <div class="d-flex justify-content-center mt-5">
+        <input oninput="search(this.value)" type="text" name="search" id="search" placeholder="SEARCH BY NAME"
+            class="form-control w-50">
+    </div>
+
+
+
+
+
+    <!-- Table For Display Data -->
+    <table class="table mt-5 w-100">
+        <thead class="bg-primary border-2 border">
+
+            <th class="border-2 border">Index</th>
+            <th class="border-2 border">الاسم</th>
+            <th class="border-2 border">التليفون</th>
+            <th class="border-2 border">العنوان</th>
+            <th class="border-2 border">التاريخ</th>
+            <th class="border-2 border">الدكتور</th>
+
+            <th class="border-2 border">نوع الشمبر</th>
+            <th class="border-2 border">نوع العدسات</th>
+            <th class="border-2 border">السعر</th>
+            <th class="border-2 border">المدفوع</th>
+            <th class="border-2 border">الباقي</th>
+
+            <th class="border-2 border">right Sph</th>
+            <th class="border-2 border">right Cyl</th>
+            <th class="border-2 border">right Axis</th>
+            <th class="border-2 border">left Sph</th>
+            <th class="border-2 border">left Cyl</th>
+            <th class="border-2 border">left Axis</th>
+            <th class="border-2 border">Addition</th>
+            <th class="border-2 border">Delet</th>
+            <th class="border-2 border">Update</th>
+
+        </thead>
+        <tbody id="content" class="tbodyfordisplay">
+
+        </tbody>
+
+    </table>
+
+
+
+
+    <script src="js/main.js"></script>
+    <script src="js/test.js"></script>
+</body>
+
+</html>
